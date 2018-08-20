@@ -1,6 +1,9 @@
 Changelog for the gruf gem. This includes internal history before the gem was made.
 
 ### Pending release
+
+- Client exceptions raised now contain mapped subclasses, such as `Gruf::Client::Errors::InvalidArgument`
+- Client exceptions will also now catch StandardError and GRPC::Core errors, and handle them as Internal errors
 - Added error handling for GRPC::Core::CallError, a low-level error in the grpc library that does not inherit
   from StandardError. [#59]
 - Removed `Thread.abort\_on\_exception = true`. Exceptions should be handled by gruf or the application,
